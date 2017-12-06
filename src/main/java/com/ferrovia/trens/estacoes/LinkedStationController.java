@@ -4,11 +4,6 @@ import com.ferrovia.trens.carga.CargoProducer;
 
 import java.util.Random;
 
-/**
- * User: dmaragkos
- * Date: 2/19/12
- * Time: 12:01 PM
- */
 public class LinkedStationController implements EstacaoController {
 
     private static final Random random = new Random();
@@ -40,7 +35,7 @@ public class LinkedStationController implements EstacaoController {
         return start;
     }
 
-    public Estacao getNextStation(Estacao station) {
+    public Estacao getProxEstacao(Estacao station) {
         return station.getProxEstacao();
     }
 
