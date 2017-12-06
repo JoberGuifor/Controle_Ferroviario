@@ -95,17 +95,17 @@ public class Trem implements Runnable {
         }
     }
 
-    public void doMove() {
+    public void move() {
         System.out.println(String.format("Train %s %s from %s", this, TremEstado.MOVING, currentStation));
         this.state = TremEstado.MOVING; 
     }
 
-    public void doWait() {
+    public void wait() {
         System.out.println(String.format("Train %s %s", this, TremEstado.WAITING));
         this.state = TremEstado.WAITING;
     }
 
-    public void doStop() {
+    public void stop() {
         System.out.println(String.format("Train %s %s", this, TremEstado.STOPPED));
         this.state = TremEstado.STOPPED;
     }
