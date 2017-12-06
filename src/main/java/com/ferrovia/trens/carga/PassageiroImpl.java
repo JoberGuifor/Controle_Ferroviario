@@ -16,20 +16,21 @@ public class PassageiroImpl implements Passageiro {
     }
 
     public void embarcar() {
-        logger.debug(String.format("Carregando Passageiros %s", this));
+        System.out.println(String.format("Carregando Passageiros %s", this));
         try { 
+        	this.comprarPasse( (numpassageiros * TEMPO_CARREGAMENTO)/3 );
         	Thread.sleep(numpassageiros * TEMPO_CARREGAMENTO); 
         } catch (InterruptedException e) {}
-        logger.debug(String.format("Passageiros carregada %s com sucesso", this));
+        System.out.println(String.format("Passageiros carregada %s com sucesso", this));
     }
 
     public void desEmbarcar() {
-        logger.debug(String.format("Descarregando Passageiros %s", this));
+        System.out.println(String.format("Descarregando Passageiros %s", this));
         try { 
         	Thread.sleep(numpassageiros * TEMPO_DESCARREGAMENTO); 
         } catch (InterruptedException e) {}
         
-        logger.debug(String.format("Passageiros descarregados %s com suceeso", this));
+        System.out.println(String.format("Passageiros descarregados %s com suceeso", this));
     }
 
     public int getDestino() {

@@ -45,18 +45,16 @@ public class EstacaoImpl implements Estacao {
     }
 
     public void entregarCarga(Passageiro cargo) {
-        logger.debug(String.format("Delivering cargo %s to station %s", cargo, this));
-        try { cargoQueue.put(cargo); } catch (InterruptedException e) {}
+        System.out.println(String.format("Entregando passageiro %s na estação %s", cargo, this));
+        try { 
+        	cargoQueue.put(cargo); 
+        } catch (InterruptedException e) {}
     }
 
-    /**
-     * Loads carg to train
-     * @return
-     */
     public Passageiro carregarPassageiroParaTrem() {
         Passageiro cargo = cargoQueue.poll();
         if (cargo != null) {
-            logger.debug(String.format("Loading cargo %s from station %s to train", cargo, this));
+            System.out.println(String.format("Embarcando passageiro %s para estação %s ", cargo, this));
             cargo.embarcar();
         }
         return cargo;
@@ -98,6 +96,6 @@ public class EstacaoImpl implements Estacao {
 
     @Override
     public String toString() {
-        return String.format("Station no[%s]", id);
+        return String.format("Estação no[%s]", id);
     }
 }
