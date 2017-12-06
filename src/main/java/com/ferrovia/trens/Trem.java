@@ -50,13 +50,13 @@ public class Trem implements Runnable {
     }
 
     private void occupyRailToNextStation() {
-        System.out.println(String.format("Train %s tries to occupy rail from station %s to station %s", this, currentStation, stationController.getProxEstacao(currentStation)));
+        System.out.println(String.format("Trem %s tenta ocupar o trilho para estação %s da estaçao %s", this, currentStation, stationController.getProxEstacao(currentStation)));
         stationController.getProxEstacao(currentStation).ocuparTrilho(this);
-        System.out.println(String.format("Train %s travels from station %s to station %s with speed %d", this, currentStation, stationController.getProxEstacao(currentStation), speed));
+        System.out.println(String.format("Trem %s viaja para estação %s da estação %s com velocidade %d", this, currentStation, stationController.getProxEstacao(currentStation), speed));
     }
 
     private void arriveAtNextStation() {
-        System.out.println(String.format("Train %s arrives at station %s", this, stationController.getProxEstacao(currentStation)));
+        System.out.println(String.format("Trem %s chega na estação %s", this, stationController.getProxEstacao(currentStation)));
         stationController.getProxEstacao(currentStation).sairTrilho(this);
         currentStation = stationController.getProxEstacao(currentStation);
     }
@@ -75,7 +75,7 @@ public class Trem implements Runnable {
     }
     
     private void loadCargo(Passageiro cargoToLoad) {
-        System.out.println(String.format("Trains %s is loading cargo %s from station %s", this, cargoToLoad, currentStation));
+        System.out.println(String.format("Trem %s está carregando %s para estação %s", this, cargoToLoad, currentStation));
         List<Passageiro> cargoList = cargo.get(cargoToLoad.getDestino());
         if (cargoList == null) {
             cargoList = new ArrayList<Passageiro>();
@@ -88,7 +88,7 @@ public class Trem implements Runnable {
         List<Passageiro> cargoList = cargo.get(currentStation.getId());
         if(cargoList != null) {
             for(Passageiro cargoToUnload : cargoList) {
-                System.out.println(String.format("Trains %s is unloading cargo %s at station %s", this, cargoToUnload, currentStation));
+                System.out.println(String.format("Trem %s está descarregando %s na estação %s", this, cargoToUnload, currentStation));
                 cargoToUnload.desEmbarcar();
             }
             cargoList.clear();
@@ -96,17 +96,17 @@ public class Trem implements Runnable {
     }
 
     public void move() {
-        System.out.println(String.format("Train %s %s from %s", this, TremEstado.MOVING, currentStation));
+        System.out.println(String.format("Trem %s %s para %s", this, TremEstado.MOVING, currentStation));
         this.state = TremEstado.MOVING; 
     }
 
     public void makewait() {
-        System.out.println(String.format("Train %s %s", this, TremEstado.WAITING));
+        System.out.println(String.format("Trem %s %s", this, TremEstado.WAITING));
         this.state = TremEstado.WAITING;
     }
 
     public void stop() {
-        System.out.println(String.format("Train %s %s", this, TremEstado.STOPPED));
+        System.out.println(String.format("Trem %s %s", this, TremEstado.STOPPED));
         this.state = TremEstado.STOPPED;
     }
 
@@ -118,13 +118,12 @@ public class Trem implements Runnable {
         return cargo;
     }
 
-    // TODO: Does it need synchronization?
     public void terminate() {
         this.terminateRequested = true;
     }
 
     @Override
     public String toString() {
-        return String.format("Train no.[%s]", id);
+        return String.format("Trem no.[%s]", id);
     }
 }
