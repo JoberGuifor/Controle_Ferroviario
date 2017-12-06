@@ -2,7 +2,7 @@ package com.ferrovia.trens;
 
 import com.ferrovia.trens.carga.Passageiro;
 import com.ferrovia.trens.estacoes.Estacao;
-import com.ferrovia.trens.estacoes.StationController;
+import com.ferrovia.trens.estacoes.EstacaoController;
 
 import org.apache.log4j.Logger;
 
@@ -12,7 +12,7 @@ public class Trem implements Runnable {
 
     private static final Logger logger = Logger.getLogger(Trem.class);
 
-    private StationController stationController;
+    private EstacaoController stationController;
     private Estacao currentStation;
     private Map<Integer, List<Passageiro>> cargo;
     private TremEstado state;
@@ -22,7 +22,7 @@ public class Trem implements Runnable {
 
     private volatile boolean terminateRequested;
 
-    public Trem(int id, int speed, int capacity, StationController stationController) {
+    public Trem(int id, int speed, int capacity, EstacaoController stationController) {
         this.id = id;
         this.speed = speed;
         this.stationController = stationController;

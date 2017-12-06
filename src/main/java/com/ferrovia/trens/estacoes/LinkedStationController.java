@@ -9,7 +9,7 @@ import java.util.Random;
  * Date: 2/19/12
  * Time: 12:01 PM
  */
-public class LinkedStationController implements StationController {
+public class LinkedStationController implements EstacaoController {
 
     private static final Random random = new Random();
     private static final int MAX_DISTANCE = 1000;
@@ -27,10 +27,10 @@ public class LinkedStationController implements StationController {
     }
 
     private void initStations() {
-        Estacao lastStation = new StationImpl(numberOfStations - 1, null, new CargoProducer(numberOfStations, numberOfStations - 1), random.nextInt(MAX_DISTANCE));
+        Estacao lastStation = new EstacaoImpl(numberOfStations - 1, null, new CargoProducer(numberOfStations, numberOfStations - 1), random.nextInt(MAX_DISTANCE));
         Estacao prevStation = lastStation;
         for (int i = numberOfStations - 2; i >= 0; i--) {
-            prevStation = new StationImpl(i, prevStation, new CargoProducer(numberOfStations, i), random.nextInt(MAX_DISTANCE));
+            prevStation = new EstacaoImpl(i, prevStation, new CargoProducer(numberOfStations, i), random.nextInt(MAX_DISTANCE));
         }
         start = prevStation;
         lastStation.setProxEstacao(prevStation);

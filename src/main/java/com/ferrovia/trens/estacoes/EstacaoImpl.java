@@ -11,9 +11,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class StationImpl implements Estacao {
+public class EstacaoImpl implements Estacao {
 
-    private static final Logger logger = Logger.getLogger(StationImpl.class);
+    private static final Logger logger = Logger.getLogger(EstacaoImpl.class);
     
     private int id;
     private Estacao nextStation;
@@ -23,7 +23,7 @@ public class StationImpl implements Estacao {
     private CargoProducer cargoProducer;
     private volatile boolean terminateProductionRequested;
     
-    public StationImpl(int id, Estacao nextStation, CargoProducer cargoProducer, int distance) {
+    public EstacaoImpl(int id, Estacao nextStation, CargoProducer cargoProducer, int distance) {
         this.id = id;
         this.nextStation = nextStation;
         this.distance = distance;

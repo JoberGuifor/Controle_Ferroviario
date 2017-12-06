@@ -1,6 +1,6 @@
 package com.ferrovia.trens.carga;
 
-import com.ferrovia.trens.estacoes.StationController;
+import com.ferrovia.trens.estacoes.EstacaoController;
 
 import java.util.Random;
 
