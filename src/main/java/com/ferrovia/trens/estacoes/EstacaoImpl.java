@@ -34,14 +34,14 @@ public class EstacaoImpl implements Estacao {
     }
 
     public void ocuparTrilho(Trem train) {
-        train.doWait();
+        train.makewait();
         railLock.lock();
-        train.doMove();
+        train.move();
     }
 
     public void sairTrilho(Trem train) {
         railLock.unlock();
-        train.doStop();
+        train.stop();
     }
 
     public void entregarCarga(Passageiro cargo) {
