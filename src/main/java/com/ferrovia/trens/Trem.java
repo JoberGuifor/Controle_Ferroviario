@@ -100,7 +100,7 @@ public class Trem implements Runnable {
         this.state = TremEstado.MOVING; 
     }
 
-    public void wait() {
+    public void makewait() {
         System.out.println(String.format("Train %s %s", this, TremEstado.WAITING));
         this.state = TremEstado.WAITING;
     }
