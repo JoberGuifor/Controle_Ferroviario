@@ -6,6 +6,10 @@ import com.ferrovia.trens.carga.CargoProducer;
 
 import org.apache.log4j.Logger;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
@@ -13,9 +17,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class EstacaoImpl implements Estacao {
 
-    private static final Logger logger = Logger.getLogger(EstacaoImpl.class);
-    
-    private int id;
+
+	private int id;
     private Estacao nextStation;
     private int distance;
     private Lock railLock;
@@ -31,7 +34,9 @@ public class EstacaoImpl implements Estacao {
         this.cargoQueue = new LinkedBlockingQueue<Passageiro>();
         this.cargoProducer = cargoProducer;
         new Thread(this).start();
+     
     }
+    
 
     public void ocuparTrilho(Trem train) {
         train.makewait();

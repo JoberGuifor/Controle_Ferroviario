@@ -1,4 +1,4 @@
-package com.ferrovia.trens.carga;
+//package com.ferrovia.trens.carga;
 
 import java.net.*;
 import java.io.*;
@@ -7,7 +7,7 @@ public class ClienteTrem {
 	public static void main(String[] args)
 	{
 	// verifica a correção dos parâmetros
-			args[0]= "hola mundo";
+//			args[0]= "hola mundo";
 			if (args.length != 1)
 			{
 				System.out.println("Usage: java myclient \"message to send\"");
