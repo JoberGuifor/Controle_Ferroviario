@@ -7,12 +7,12 @@ import com.ferrovia.trens.estacoes.ServidorDaEsta;
 import com.ferrovia.trens.estacoes.EstacaoController;
 
 public class Main {
+	private static final int NO_OF_STATIONS = 8;
+	
+	
 	  public static void main (String args[ ]) {
-		  
-		 
-		  ServidorDaEsta sd = new ServidorDaEsta();
-		  ClienteTrem ct = new ClienteTrem();
-		  sd.main(null);
-		  ct.main(new String[] {"que passa server?"});
+
+			  EstacaoController stationController = new LinkedStationController(NO_OF_STATIONS);
+			  
 	  }
 }
